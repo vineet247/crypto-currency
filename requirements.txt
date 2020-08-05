@@ -1,0 +1,4 @@
+requests==2.22.0
+python_binance==0.7.5
+Flask==1.1.1
+binance==0.3

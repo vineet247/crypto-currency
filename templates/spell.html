@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Crypto Price Check{% endblock %}
+{% block content %}
+<div class="container">
+  <h2>Fetched Crypto Prices</h2>
+  <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Crypto Prices</h4>
+  </div>
+  <hr>
+  <div class="table-responsive">
+  <table class="table">
+    {% for i in items%}
+    <tr>
+      <td>{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      </tr>
+      {% endfor %}
+</table>
+</div>
+  <p class="mb-0" id="ans">
+    {% for i in ans%}
+    <p>{{i}}</p>
+    {% endfor %}
+  </p>
+
+</div>
+  </body>
+</html>
+{% endblock %}

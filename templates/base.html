@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+{% block head %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <script src="/static/js/jquery-min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  {% endblock %}
+<title>{% block title %}{% endblock %} - Crypto Price Checker</title>
+</head>
+<body>
+
+{% block navbar %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Crypto Price Checker</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+  </ul>
+  </div>
+</nav>
+{% endblock %}
+{% block content %}{% endblock %}
