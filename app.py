@@ -74,4 +74,5 @@ if __name__ == '__main__':
     api_key_binance = data[0]
     api_secret_binance = data[1]
 
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
