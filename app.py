@@ -25,14 +25,15 @@ def get_binance_info():
 
 #function to get info from CryptoCompare
 def get_crypto_compare_info():
-    btc_url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key=d407a73741e11d9f529b9c721f47143d70b477bc5ac0558a1e0fa5e2c8c77e6b'
-    response = requests.get(btc_url)
+    btc_url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD'
+    data = {'api_key': 'd407a73741e11d9f529b9c721f47143d70b477bc5ac0558a1e0fa5e2c8c77e6b'}
+    response = requests.get(btc_url, data = data)
     btc = response.json()
     btc = btc["USD"]
 
 
-    eth_url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD&api_key=d407a73741e11d9f529b9c721f47143d70b477bc5ac0558a1e0fa5e2c8c77e6b'
-    response = requests.get(eth_url)
+    eth_url = 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD'
+    response = requests.get(eth_url, data = data)
     eth = response.json()
     eth = eth["USD"]
 
