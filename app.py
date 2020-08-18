@@ -26,7 +26,7 @@ def get_binance_info():
 #function to get info from CryptoCompare
 def get_crypto_compare_info():
     btc_url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD'
-    data = {'api_key': 'd407a73741e11d9f529b9c721f47143d70b477bc5ac0558a1e0fa5e2c8c77e6b'}
+    data = {'api_key': api_key_crypto_compare}
     response = requests.get(btc_url, data = data)
     btc = response.json()
     btc = btc["USD"]
@@ -75,5 +75,9 @@ if __name__ == '__main__':
     api_key_binance = data[0]
     api_secret_binance = data[1]
 
+    with open('secrets2.txt', 'r') as file:
+        data = file.read()
+
+    api_key_crypto_compare = data
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
