@@ -39,7 +39,8 @@ def get_crypto_compare_info():
 
 
 @app.route('/')
-def hello_world():
+#This function is executed when page is loaded
+def display_op():
     btc_price_binance, eth_price_binance = get_binance_info()
     btc_price_crypto, eth_price_crypto = get_crypto_compare_info()
     ans = []
@@ -47,9 +48,6 @@ def hello_world():
     #printing value as a table
     items = [["Crypto Compare", "Bitcoin", btc_price_crypto], ["Binance", "Bitcoin", btc_price_binance],
     ["Binance", "Ethereum", eth_price_binance], ["Crypto Compare", "Ethereum", eth_price_crypto]]
-
-
-    # Print the html
 
 
 
