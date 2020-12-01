@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+requests = "==2.22.0"
+python-binance = "==0.7.5"
+binance = "==0.3"
+gunicorn = "==20.0.4"
+Flask = "==1.1.1"
+
+[requires]
+python_version = "3.7"
