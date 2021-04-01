@@ -6,8 +6,29 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, session,url_for
 )
 import os
+from cryptography.fernet import Fernet
 
 app = Flask(__name__)
+
+#load key for encrypted API key file
+def load_key():
+    """
+    Loads the key from the current directory named `key.key`
+    """
+    return open(r"key.key", "rb").read()
+
+#decrypt file
+def decrypt(filename, key):
+    """
+    Given a filename (str) and key (bytes), it decrypts the file and write it
+    """
+    f = Fernet(key)
+    with open(filename, "rb") as file:
+        # read the encrypted data
+        encrypted_data = file.read()
+    # decrypt data
+    decrypted_data = f.decrypt(encrypted_data)
+    return(decrypted_data.decode("utf-8"))
 
 #function to get info from Binance
 def get_binance_info():
@@ -68,16 +89,18 @@ def display_op():
 
 
 if __name__ == '__main__':
-    with open('secrets.txt', 'r') as file:
-        data = file.read()
 
+    #get keys and decrypt files
+    key = load_key()
+    api_keys = decrypt("secrets.txt", key)
+    api_keys = api_keys.split("\n")
 
-    api_key_binance = data[0]
-    api_secret_binance = data[1]
+    api_key_binance = api_keys[0]
+    api_secret_binance = api_keys[1]
 
-    with open('secrets2.txt', 'r') as file:
-        data = file.read()
+    #get keys for crypto_compare
+    crypto_keys = decrypt("secrets2.txt", key)
 
-    api_key_crypto_compare = data
+    api_key_crypto_compare = crypto_keys
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
