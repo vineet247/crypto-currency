@@ -69,8 +69,8 @@ def display_op():
     ans = []
 
     #printing value as a table
-    items = [["Crypto Compare", "Bitcoin", btc_price_crypto], ["Crypto Compare", "Ethereum", eth_price_crypto], ["Binance", "Bitcoin", btc_price_binance],
-    ["Binance", "Ethereum", eth_price_binance]]
+    items = [["Crypto Compare", "Bitcoin", btc_price_crypto], ["Binance", "Bitcoin", btc_price_binance],
+    ["Binance", "Ethereum", eth_price_binance], ["Crypto Compare", "Ethereum", eth_price_crypto]]
 
 
 
