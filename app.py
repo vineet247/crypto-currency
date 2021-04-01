@@ -91,16 +91,16 @@ def display_op():
 if __name__ == '__main__':
 
     #get keys and decrypt files
-    key = load_key()
-    api_keys = decrypt("secrets.txt", key)
-    api_keys = api_keys.split("\n")
+    #key = load_key()
+    #api_keys = decrypt("secrets.txt", key)
+    #api_keys = api_keys.split("\n")
 
-    api_key_binance = api_keys[0]
-    api_secret_binance = api_keys[1]
+    api_key_binance = os.environ['api_key_binance']
+    api_secret_binance = os.environ['api_key_binance_2']
 
     #get keys for crypto_compare
-    crypto_keys = decrypt("secrets2.txt", key)
+    #crypto_keys = decrypt("secrets2.txt", key)
 
-    api_key_crypto_compare = crypto_keys
+    api_key_crypto_compare = os.environ['crypto_keys']
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
